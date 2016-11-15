@@ -23,7 +23,7 @@ const todo = (state, action) => {
 }
 
 const todos = (state = [], action) => {
-  switch (action.type) {(
+  switch (action.type) {
     case actions.ADD_TODO:
       return [
         ...state,
