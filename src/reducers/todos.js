@@ -1,14 +1,14 @@
-import * as actions from '../actions'
+import { ADD_TODO, TOGGLE_TODO } from '../actions'
 
 const todo = (state, action) => {
   switch (action.type) {
-    case actions.ADD_TODO:
+    case ADD_TODO:
       return {
         id: action.id,
         text: action.text,
         completed: false
       }
-    case actions.TOGGLE_TODO:
+    case TOGGLE_TODO:
       if (state.id !== action.id) {
         return state
       }
@@ -24,12 +24,12 @@ const todo = (state, action) => {
 
 const todos = (state = [], action) => {
   switch (action.type) {
-    case actions.ADD_TODO:
+    case ADD_TODO:
       return [
         ...state,
         todo(undefined, action)
       ]
-    case actions.TOGGLE_TODO:
+    case TOGGLE_TODO:
       return state.map(t =>
         todo(t, action)
       )
